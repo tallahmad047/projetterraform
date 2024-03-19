@@ -4,6 +4,8 @@ resource "aws_security_group" "my_instance_SG" {
 tags = {
     Name="my-security-group"
 }
+
+
 }
 
 # Allow incoming HTTP (port 80) traffic

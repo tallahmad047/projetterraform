@@ -1,9 +1,10 @@
 resource "aws_vpc" "main" {
   cidr_block       = "10.0.0.0/16"
   instance_tenancy = "default"
+  
 
   tags = {
-    Name = "python_app_vpc"
+    Name = "python_app"
   }
 }
 

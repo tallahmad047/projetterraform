@@ -26,16 +26,29 @@ resource "aws_instance" "website" {
   
   user_data = <<-EOF
               #!/bin/bash
+              
+
+
               sudo apt-get update
               sudo apt install docker.io -y
               sudo apt install python3-pip -y
               sudo pip3 install psutil flask
+              
+
               sudo systemctl restart docker
               sudo usermod -aG docker 
-              git clone https://github.com/tallahmad047/terraformflaskdocker.git
-              
+              sudo apt install git -y
+              sudo usermod -aG git
+              sudo git clone https://github.com/tallahmad047/projetflask.git
+             
+
+                       
+
+
+              cd projetflask/
               sudo docker build -t myflaskappv1 .
               sudo docker run -p 5000:5000 myflaskappv1
+              
               EOF
 
             

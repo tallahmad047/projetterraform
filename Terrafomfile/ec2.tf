@@ -38,14 +38,18 @@ resource "aws_instance" "website" {
               sudo systemctl restart docker
               sudo usermod -aG docker 
               sudo apt install git -y
-              sudo usermod -aG git
-              sudo git clone https://github.com/tallahmad047/projetflask.git
+              
+              mkdir /home/ubuntu/tall
+              cd /home/ubuntu/tall
+
+
+              git clone https://github.com/tallahmad047/memoireApp.git  
              
 
                        
 
 
-              cd projetflask/
+              cd /home/ubuntu/tall/memoireApp
               sudo docker build -t myflaskappv1 .
               sudo docker run -p 5000:5000 myflaskappv1
               
